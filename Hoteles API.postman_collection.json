@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "fc632bde-c030-4270-9281-d529b69d5718",
+		"name": "Hoteles API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21453234"
+	},
+	"item": [
+		{
+			"name": "Crear Hotel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"DECAMERON CALI\",\n  \"direccion\": \"CALLE 23 58-25\",\n  \"ciudad\": \"CALI\",\n  \"nit\": \"1234456343747-9\",\n  \"numero_habitaciones\": 42\n}"
+				},
+				"url": {
+					"raw": "https://back-testtechnical-main-y71e7j.laravel.cloud/api/hoteles",
+					"protocol": "https",
+					"host": [
+						"back-testtechnical-main-y71e7j",
+						"laravel",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"hoteles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Hoteles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://back-testtechnical-main-y71e7j.laravel.cloud/api/hoteles",
+					"protocol": "https",
+					"host": [
+						"back-testtechnical-main-y71e7j",
+						"laravel",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"hoteles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un Hotel por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://back-testtechnical-main-y71e7j.laravel.cloud/api/hoteles/1",
+					"protocol": "https",
+					"host": [
+						"back-testtechnical-main-y71e7j",
+						"laravel",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"hoteles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un Hotel",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"DECAMERON ACTUALIZADO\",\n  \"direccion\": \"CALLE NUEVA 99-99\",\n  \"ciudad\": \"CARTAGENA\",\n  \"nit\": \"98765432-1\",\n  \"numero_habitaciones\": 50\n}"
+				},
+				"url": {
+					"raw": "https://back-testtechnical-main-y71e7j.laravel.cloud/api/hoteles/1",
+					"protocol": "https",
+					"host": [
+						"back-testtechnical-main-y71e7j",
+						"laravel",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"hoteles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar un Hotel",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://back-testtechnical-main-y71e7j.laravel.cloud/api/hoteles/1",
+					"protocol": "https",
+					"host": [
+						"back-testtechnical-main-y71e7j",
+						"laravel",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"hoteles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Habitación",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"hotel_id\": 1,\n  \"tipo\": \"ESTANDAR\",\n  \"cantidad\": 25\n}"
+				},
+				"url": {
+					"raw": "https://back-testtechnical-main-y71e7j.laravel.cloud/api/habitaciones",
+					"protocol": "https",
+					"host": [
+						"back-testtechnical-main-y71e7j",
+						"laravel",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"habitaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Acomodación",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"habitacion_id\": 1,\n  \"tipo\": \"SENCILLA\"\n}"
+				},
+				"url": {
+					"raw": "https://back-testtechnical-main-y71e7j.laravel.cloud/api/acomodaciones",
+					"protocol": "https",
+					"host": [
+						"back-testtechnical-main-y71e7j",
+						"laravel",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"acomodaciones"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
