@@ -1,0 +1,79 @@
+{
+    "info": {
+      "_postman_id": "12345678-abcd-1234-abcd-1234567890ab",
+      "name": "Hoteles API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Crear Hotel",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/hoteles", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "hoteles"] },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"nombre\": \"DECAMERON CARTAGENA\",\n  \"direccion\": \"CALLE 23 58-25\",\n  \"ciudad\": \"CARTAGENA\",\n  \"nit\": \"12345678-9\",\n  \"numero_habitaciones\": 42\n}"
+          }
+        }
+      },
+      {
+        "name": "Listar Hoteles",
+        "request": {
+          "method": "GET",
+          "url": { "raw": "http://127.0.0.1:8000/api/hoteles", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "hoteles"] }
+        }
+      },
+      {
+        "name": "Obtener un Hotel por ID",
+        "request": {
+          "method": "GET",
+          "url": { "raw": "http://127.0.0.1:8000/api/hoteles/1", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "hoteles", "1"] }
+        }
+      },
+      {
+        "name": "Actualizar un Hotel",
+        "request": {
+          "method": "PUT",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/hoteles/1", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "hoteles", "1"] },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"nombre\": \"DECAMERON ACTUALIZADO\",\n  \"direccion\": \"CALLE NUEVA 99-99\",\n  \"ciudad\": \"CARTAGENA\",\n  \"nit\": \"98765432-1\",\n  \"numero_habitaciones\": 50\n}"
+          }
+        }
+      },
+      {
+        "name": "Eliminar un Hotel",
+        "request": {
+          "method": "DELETE",
+          "url": { "raw": "http://127.0.0.1:8000/api/hoteles/1", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "hoteles", "1"] }
+        }
+      },
+      {
+        "name": "Crear Habitación",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/habitaciones", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "habitaciones"] },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"hotel_id\": 1,\n  \"tipo\": \"ESTANDAR\",\n  \"cantidad\": 25\n}"
+          }
+        }
+      },
+      {
+        "name": "Crear Acomodación",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/acomodaciones", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "acomodaciones"] },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"habitacion_id\": 1,\n  \"tipo\": \"SENCILLA\"\n}"
+          }
+        }
+      }
+    ]
+  }
+  
