@@ -1,66 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Despliegue de API Laravel en Laravel Cloud
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Esta guía detalla los pasos para desplegar una API desarrollada en Laravel utilizando **Laravel Cloud**, así como la configuración de la base de datos en este entorno.
 
-## About Laravel
+## Requisitos Previos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Cuenta en Laravel Cloud**: Si aún no tienes una, regístrate en [Laravel Cloud](https://cloud.laravel.com/).
+- **Repositorio Git**: Tu proyecto Laravel debe estar versionado en un repositorio Git accesible (por ejemplo, GitHub, GitLab).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Pasos para el Despliegue
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Crear un Nuevo Proyecto en Laravel Cloud
 
-## Learning Laravel
+1. **Accede al Panel de Laravel Cloud**: Inicia sesión en tu cuenta de Laravel Cloud.
+2. **Inicia un Nuevo Proyecto**:
+   - Haz clic en "New Project" o "Nuevo Proyecto".
+   - Asigna un nombre a tu proyecto y proporciona una breve descripción si lo deseas.
+3. **Conecta tu Repositorio Git**:
+   - Selecciona el proveedor de Git donde se encuentra tu código (GitHub, GitLab, etc.).
+   - Autoriza a Laravel Cloud para acceder a tu cuenta de Git si es necesario.
+   - Elige el repositorio que contiene tu proyecto Laravel.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 2. Configurar Variables de Entorno
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Laravel requiere ciertas variables de entorno para funcionar correctamente. Configura estas variables en Laravel Cloud:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Accede a la Configuración del Proyecto**: Dentro de tu proyecto en Laravel Cloud, navega a la sección de configuración o "Settings".
+2. **Establece las Variables de Entorno**:
+   - `APP_ENV`: Establece este valor a `production`.
+   - `APP_KEY`: Laravel Cloud puede generar una clave de aplicación automáticamente, o puedes establecerla manualmente.
+   - `DB_CONNECTION`: Define el tipo de base de datos que utilizarás (por ejemplo, `mysql`).
+   - `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`: Estos valores serán proporcionados por Laravel Cloud al configurar la base de datos (ver siguiente sección).
 
-## Laravel Sponsors
+### 3. Configurar la Base de Datos
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Laravel Cloud facilita la creación y gestión de bases de datos:
 
-### Premium Partners
+1. **Crea una Nueva Base de Datos**:
+   - Navega a la sección de bases de datos dentro de tu proyecto en Laravel Cloud.
+   - Haz clic en "Crear Base de Datos" o similar.
+   - Selecciona el tipo de base de datos (por ejemplo, MySQL) y define el nombre de la base de datos.
+2. **Obtén las Credenciales de la Base de Datos**:
+   - Una vez creada, Laravel Cloud proporcionará las credenciales necesarias (`DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`).
+3. **Actualiza las Variables de Entorno**: Asegúrate de que las variables de entorno relacionadas con la base de datos estén correctamente configuradas con las credenciales proporcionadas.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 4. Desplegar la Aplicación
 
-## Contributing
+Con el repositorio conectado y las variables de entorno configuradas, procede a desplegar la aplicación:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Inicia el Despliegue**:
+   - Dentro de tu proyecto en Laravel Cloud, haz clic en "Deploy" o "Desplegar".
+   - Selecciona la rama del repositorio que deseas desplegar (por ejemplo, `main` o `master`).
+2. **Monitorea el Proceso**: Laravel Cloud mostrará logs en tiempo real del proceso de despliegue. Verifica que no haya errores y que el despliegue se complete exitosamente.
 
-## Code of Conduct
+### 5. Verificar la Aplicación en Producción
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Una vez completado el despliegue:
 
-## Security Vulnerabilities
+1. **Accede a la URL Proporcionada**: Laravel Cloud asignará una URL temporal o definitiva a tu aplicación.
+2. **Prueba la API**: Realiza solicitudes a tus endpoints para asegurarte de que la API funcione correctamente en el entorno de producción.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Consideraciones Adicionales
 
-## License
+- **Migraciones de Base de Datos**: Asegúrate de ejecutar las migraciones necesarias para crear las tablas en la base de datos:
+  ```bash
+  php artisan migrate --force
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
